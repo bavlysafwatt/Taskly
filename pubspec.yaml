@@ -41,6 +41,8 @@ dependencies:
   msh_checkbox: ^2.0.1
   flutter_launcher_icons: ^0.14.3
   flutter_native_splash: ^2.4.4
+  google_nav_bar: ^5.0.7
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:
@@ -57,9 +59,9 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#FFFFFF"   # Color of the background of the splash screen 
-  image: assets/images/logo.png  # image path
+  image: assets/images/splash_screen.png  # image path
   android_12:
-    image: assets/images/logo.png  # image path
+    image: assets/images/splash_screen.png  # image path
     color: "#FFFFFF"   # Color of the background of the splash screen 
 
 
@@ -67,7 +69,7 @@ flutter_native_splash:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/logo.png"  # Logo image path 
+  image_path: "assets/images/icon.png"  # Logo image path 
   min_sdk_android: 21
 
 # For information on the generic Dart part of this file, see the

@@ -24,9 +24,7 @@ class Taskly extends StatelessWidget {
         theme: ThemeData(
           fontFamily: "SpaceGrotesk",
         ),
-        home: Scaffold(
-          body: HomePage(),
-        ),
+        home: HomePage(),
       ),
     );
   }

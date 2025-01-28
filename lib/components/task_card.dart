@@ -55,18 +55,24 @@ class TaskCard extends StatelessWidget {
               duration: Duration(milliseconds: 500),
             ),
             SizedBox(width: 15),
-            Text(
-              toDoModel.name,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-                decoration: toDoModel.isCompleted
-                    ? TextDecoration.lineThrough
-                    : TextDecoration.none,
-                decorationThickness: 1.5,
+            Expanded(
+              child: Wrap(
+                children: [
+                  Text(
+                    toDoModel.name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      decoration: toDoModel.isCompleted
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                      decorationThickness: 1.5,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Spacer(),
+            SizedBox(width: 10),
             Icon(
               Icons.arrow_back_ios,
               size: 18,

@@ -11,6 +11,7 @@ class TodoCubit extends Cubit<TodoState> {
   TodoCubit() : super(TodoInitial());
 
   List toDoList = [];
+  List goalsList = [];
   final box = Hive.box('toDoBox');
 
   void loadData() {
@@ -22,8 +23,21 @@ class TodoCubit extends Cubit<TodoState> {
     emit(TodoRefresh());
   }
 
+  void loadGoals() {
+    if (box.get("goalsList") == null) {
+      goalsList = [];
+    } else {
+      goalsList = box.get("goalsList");
+    }
+    emit(TodoRefresh());
+  }
+
   void updateData() {
     box.put("toDoList", toDoList);
+  }
+
+  void updateGoals() {
+    box.put("goalsList", goalsList);
   }
 
   void checkBoxChanged(bool? value, int index) {
@@ -32,10 +46,22 @@ class TodoCubit extends Cubit<TodoState> {
     updateData();
   }
 
+  void checkGoalBoxChanged(bool? value, int index) {
+    goalsList[index].isCompleted = !goalsList[index].isCompleted;
+    emit(TodoRefresh());
+    updateGoals();
+  }
+
   void updateTask(String value, int index) {
     toDoList[index].name = value;
     emit(TodoRefresh());
     updateData();
+  }
+
+  void updateGoal(String value, int index) {
+    goalsList[index].name = value;
+    emit(TodoRefresh());
+    updateGoals();
   }
 
   void saveNewTask(ToDoModel todoModel) {
@@ -44,9 +70,21 @@ class TodoCubit extends Cubit<TodoState> {
     updateData();
   }
 
+  void saveNewGoal(ToDoModel todoModel) {
+    goalsList.add(todoModel);
+    emit(TodoRefresh());
+    updateGoals();
+  }
+
   void deleteTask(int index) {
     toDoList.removeAt(index);
     emit(TodoRefresh());
     updateData();
+  }
+
+  void deleteGoal(int index) {
+    goalsList.removeAt(index);
+    emit(TodoRefresh());
+    updateGoals();
   }
 }

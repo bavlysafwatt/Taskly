@@ -12,6 +12,11 @@ class WelcomeCard extends StatelessWidget {
         children: [
           Row(
             children: [
+              Image.asset(
+                'assets/images/splash_screen.png',
+                width: 50,
+                height: 50,
+              ),
               Text(
                 "Welcome back, ",
                 style: TextStyle(
