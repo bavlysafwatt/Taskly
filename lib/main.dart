@@ -22,6 +22,8 @@ class Taskly extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          primarySwatch: Colors.blueGrey,
+          useMaterial3: false,
           fontFamily: "SpaceGrotesk",
         ),
         home: HomePage(),

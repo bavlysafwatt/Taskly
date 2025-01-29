@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';
 import 'package:taskly/models/to_do_model.dart';
 
@@ -22,17 +23,26 @@ class TaskCard extends StatelessWidget {
       endActionPane: ActionPane(
         motion: ScrollMotion(),
         children: [
-          SlidableAction(
+          CustomSlidableAction(
             onPressed: onEdit,
-            icon: Icons.edit,
             backgroundColor: Colors.grey.shade600,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+            child: Icon(
+              FontAwesomeIcons.pen,
+              size: 15,
+            ),
           ),
-          SlidableAction(
+          CustomSlidableAction(
             onPressed: onPressed,
-            icon: Icons.delete,
             backgroundColor: Colors.redAccent,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(12),
+                bottomRight: Radius.circular(12)),
+            child: Icon(
+              FontAwesomeIcons.trash,
+              size: 15,
+            ),
           ),
         ],
       ),
